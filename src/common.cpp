@@ -422,7 +422,7 @@ std::vector<std::string> file_dialog(const std::vector<std::pair<std::string, st
 #if !defined(__APPLE__)
     #if !defined(_WIN32)
         //linux
-        std::string directory_dialog(std::string save_dir){
+        std::string directory_dialog(const std::string save_dir){
             static const int DIRECTORY_DIALOG_MAX_BUFFER = 16384;
             char buffer[DIRECTORY_DIALOG_MAX_BUFFER];
             buffer[0] = '\0';
@@ -447,7 +447,7 @@ std::vector<std::string> file_dialog(const std::vector<std::pair<std::string, st
     #else
 
 
-        std::string directory_dialog(std::string saved_path){
+        std::string directory_dialog(const std::string saved_path){
             TCHAR path[MAX_PATH];
 
             const char * path_param = saved_path.c_str();
