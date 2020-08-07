@@ -178,6 +178,14 @@ class TestApp(Screen):
             print("File dialog result = %s" % result)
 
         b.set_callback(cb)
+
+        b = Button(tools, "Folder Open")
+
+        def cb():
+            result = nanogui.directory_dialog("")
+            print("Selected directory = %s" % result)
+
+        b.set_callback(cb)
         b = Button(tools, "Save")
 
         def cb():

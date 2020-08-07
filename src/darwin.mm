@@ -8,6 +8,19 @@
 
 NAMESPACE_BEGIN(nanogui)
 
+std::string directory_dialog(std::string saved_path = "") {
+    NSOpenPanel *openDlg = [NSOpenPanel openPanel];
+
+    [openDlg setCanChooseFiles:NO];
+    [openDlg setCanChooseDirectories:YES];
+    [openDlg setAllowsMultipleSelection:multiple];
+
+    if ([openDlg runModal] == NSModalResponseOK) {
+        NSURL* url = [openDlg URLs];
+        return ((char*) [[url path] UTF8String]);
+    }
+}
+
 std::vector<std::string>
 file_dialog(const std::vector<std::pair<std::string, std::string>> &filetypes,
             bool save, bool multiple) {
