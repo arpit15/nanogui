@@ -11,6 +11,10 @@ NAMESPACE_BEGIN(nanogui)
 std::string directory_dialog(const std::string saved_path) {
     NSOpenPanel *openDlg = [NSOpenPanel openPanel];
 
+    if(saved_path.length() > 0 ){
+        std::string urlString = "folder"+saved_path;
+        [openDlg setDirectoryURL: [NSURL URLWithString: [NSString stringWithUTF8String: urlString.c_str()]]];
+    }
     [openDlg setCanChooseFiles:NO];
     [openDlg setCanChooseDirectories:YES];
     [openDlg setAllowsMultipleSelection:NO];
