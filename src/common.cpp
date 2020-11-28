@@ -429,7 +429,7 @@ std::vector<std::string> file_dialog(const std::vector<std::pair<std::string, st
 
             std::string cmd = "zenity --file-selection --directory ";
             if(save_dir.length() > 0 ){
-                cmd += "-filename="+save_dir;
+                cmd += "--filename="+save_dir;
             }
 
             FILE *output = popen(cmd.c_str(), "r");
